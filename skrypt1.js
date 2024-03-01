@@ -8,7 +8,19 @@ function przesylFormularza(formularz){
 
 
 
-
+function zmianawidoku(b){
+    if (b ===1 && document.getElementById('uczenDodaj').style.display == 'none'){
+        document.getElementById('uczenDodaj').style.display = 'block';
+    }else{
+        document.getElementById('uczenDodaj').style.display = 'none';
+    }
+    if (b ===2 && document.getElementById('ksiazkaDodaj').style.display == 'none'){
+        document.getElementById('ksiazkaDodaj').style.display = 'block';
+    }else{
+        document.getElementById('uczenDodaj').style.display = 'none';
+    }
+  
+}
 
 /*
 fetch(url)
