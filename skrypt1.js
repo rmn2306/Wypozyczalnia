@@ -8,23 +8,36 @@ function przesylFormularza(formularz){
 
 
 
-
 function zmianawidoku(b){
-    if (b ===1 && document.getElementById('uczenDodaj').style.display == 'none'){
+switch (b){
+    case 1:
+    if (document.getElementById('uczenDodaj').style.display === 'none'){
         document.getElementById('uczenDodaj').style.display = 'block';
+        
     }else{
         document.getElementById('uczenDodaj').style.display = 'none';
     }
-    if (b ===2 && document.getElementById('ksiazkaDodaj').style.display == 'none'){
+    break;
+    case 2:
+    if (document.getElementById('ksiazkaDodaj').style.display === 'none'){
         document.getElementById('ksiazkaDodaj').style.display = 'block';
     }else{
-        document.getElementById('uczenDodaj').style.display = 'none';
+        document.getElementById('ksiazkaDodaj').style.display = 'none';
     }
-  
+    break;
+    case 3:
+    if (document.getElementById('wyswietlUcznia').style.display === 'none'){
+        document.getElementById('wyswietlUcznia').style.display = 'block';
+    }else{
+        document.getElementById('wyswietlUcznia').style.display = 'none';
+    }
+    break;
+}
 }
 
-/*
-fetch(url)
+function pobieranieDanych(){
+
+    fetch('https://imiki.pl/projekt/sr16/users')
     .then(response => { return response.text();
     })
     .then(fileContent => {
@@ -35,7 +48,9 @@ fetch(url)
         console.error('błąd json:', error);
     });
 
-*/
+}
+
+
 /*
 function dane(d) {
     i = 0;
