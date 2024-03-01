@@ -21,11 +21,11 @@
     </nav>
     
 
-    <div id="uczenDodaj" class="bg-light " >
+   <div id="uczenDodaj" class="bg-light " >
         <h1>Dane ucznia</h1>
-        <form id="uczenDodajF">
+        <form action="http://imiki.pl/projekt/sr16/user" method="post" id="uczenDodajF">
           <div class="mb-3">
-            <input type="hidden" value="sr16" name="id"> 
+            <input type="hidden" value="sr16" name="id" > 
             <label for="imie" class="form-label">Imię:</label>
             <input type="text" class="form-control" required>
           </div>
@@ -41,7 +41,7 @@
             <label for="data_urodzenia" class="form-label">Data urodzenia:</label>
             <input type="date" class="form-control" id="data_urodzenia" name="data_urodzenia" required>
           </div>
-          <button onclick="przesylFormularza('uczenDodajF')" class="btn btn-success">Wyślij</button>
+          <button type="submit" class="btn btn-success">Wyślij</button>
         </form>
     </div>
 
