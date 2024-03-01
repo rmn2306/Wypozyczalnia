@@ -1,9 +1,10 @@
 
 function przesylFormularza(formularz){
-
     dane=new FormData(document.getElementById(formularz));
-    $.post("http://imiki.pl/projekt/sr16/user",dane); 
+    fetch(formularz.action, {method: 'POST',body: dane})
+    
 }
+
 
 
 
