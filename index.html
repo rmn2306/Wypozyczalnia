@@ -7,7 +7,7 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+  <script src="skrypt.js"></script>
   <div class="container">
     
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -15,13 +15,13 @@
             <button type="button"  onclick="zmianawidoku(1)" class="btn btn-dark">Dodaj ucznia</button>
             <button type="button"   onclick="zmianawidoku(2)" class="btn btn-dark">Dodaj książkę</button>
             <button type="button"   onclick="zmianawidoku(3)" class="btn btn-dark">Wyświetl ucznia</button>
-            <button type="button"   onclick="zmianawidoku(4)" class="btn btn-dark">Wyświetl książkę</button>
-    
+            <button type="button"   onclick="zmianawidoku(4)" class="btn btn-danger">Wyświetl książkę</button>
+
         </div>
     </nav>
     
 
-   <div id="uczenDodaj" class="bg-light " >
+   <div id="uczenDodaj" class="bg-light " style="display: none;">
         <h1>Dane ucznia</h1>
         <form action="http://imiki.pl/projekt/sr16/user" method="post" id="uczenDodajF">
           <div class="mb-3">
@@ -45,7 +45,7 @@
         </form>
     </div>
 
-    <div id="ksiazkaDodaj" class="bg-light ">
+    <div id="ksiazkaDodaj" class="bg-light " style="display: none;">
         <h1>Dane książki</h1>
         <form action="http://imiki.pl/projekt/sr16/books" method="post">
           <div class="mb-3">
@@ -68,15 +68,23 @@
           <button type="submit" class="btn btn-success">Wyślij</button>
         </form>
     </div>
-   
-    
+
+    <div id="wyswietlUcznia" class="bg-light " style="display: none;">
+      <h1>Dane ucznia:</h1>
+      <div id="zawartosc1"></div>
+    </div>
+
+    <div id="wyswietlKsiazke" class="bg-light " style="display: none;">
+      <h1>Dane książki:</h1>
+      <div id="zawartosc2"></div>
+    </div>
     
 
   </div>
 
 
 
-  <script> src="skrypt1.js"</script>
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/4aY+CRAz5GiMiTAK8xxn03353962C57Nfd/33" crossorigin="anonymous"></script>
 </body>
 </html>
