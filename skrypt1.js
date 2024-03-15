@@ -1,18 +1,13 @@
 
-function przesylFormularza(formularz){
-    dane=new FormData(document.getElementById(formularz));
-    fetch(formularz.action, {method: 'POST',body: dane})
-    
-}
-
-
-
-
 function zmianawidoku(b){
 switch (b){
     case 1:
     if (document.getElementById('uczenDodaj').style.display === 'none'){
         document.getElementById('uczenDodaj').style.display = 'block';
+
+        document.getElementById('ksiazkaDodaj').style.display = 'none';
+        document.getElementById('wyswietlUcznia').style.display = 'none';
+        document.getElementById('wyswietlKsiazke').style.display = 'none';
         
     }else{
         document.getElementById('uczenDodaj').style.display = 'none';
@@ -21,6 +16,10 @@ switch (b){
     case 2:
     if (document.getElementById('ksiazkaDodaj').style.display === 'none'){
         document.getElementById('ksiazkaDodaj').style.display = 'block';
+
+        document.getElementById('uczenDodaj').style.display = 'none';
+        document.getElementById('wyswietlUcznia').style.display = 'none';
+        document.getElementById('wyswietlKsiazke').style.display = 'none';
     }else{
         document.getElementById('ksiazkaDodaj').style.display = 'none';
     }
@@ -28,43 +27,63 @@ switch (b){
     case 3:
     if (document.getElementById('wyswietlUcznia').style.display === 'none'){
         document.getElementById('wyswietlUcznia').style.display = 'block';
+
+        document.getElementById('uczenDodaj').style.display = 'none';
+        document.getElementById('ksiazkaDodaj').style.display = 'none';
+        document.getElementById('wyswietlKsiazke').style.display = 'none';
     }else{
         document.getElementById('wyswietlUcznia').style.display = 'none';
     }
     break;
+    case 4:
+    if (document.getElementById('wyswietlKsiazke').style.display === 'none'){
+        document.getElementById('wyswietlKsiazke').style.display = 'block';
+
+        document.getElementById('uczenDodaj').style.display = 'none';
+        document.getElementById('ksiazkaDodaj').style.display = 'none';
+        document.getElementById('wyswietlUcznia').style.display = 'none';
+    }else{
+        document.getElementById('wyswietlKsiazke').style.display = 'none';
+    }
+    break;
 }
 }
-
-function pobieranieDanych(){
-
-    fetch('https://imiki.pl/projekt/sr16/users')
-    .then(response => { return response.text();
-    })
-    .then(fileContent => {
-       dane(JSON.parse(fileContent));
+function odczytJSON(a){
+    if (a===0){
+        fetch('http://imiki.pl/projekt/sr16')
+        .then(response => action.text())
+        .then(text => document.getElementById("zawartosc1").innerHTML=text)
+    }
+    if(a===1){
+        fetch('https://imiki.pl/projekt/API/books')
+        .then(response => response.text())
+        .then(text => document.getElementById("zawartosc2").innerHTML=text)
+    }
+   
   
-    })
-    .catch(error => {
-        console.error('błąd json:', error);
-    });
-
 }
 
 
-/*
-function dane(d) {
-    i = 0;
-    str = "";
-    for(ind of d) {
-    a =  JSON.parse(ind.data);
-    i++;
-    str += i + " ";
-    str += ind.id + " "; 
-    str += ind.user + " ";
-    str += ind.data + ""; 
-    str += a.nazwisko + "<br>"; 
+function dlugosc(a,x,y){
+if (a.length >=x || a.length <=y){
+    return false
+}
 
+
+
+}
+/*
+function weryfikacjaDanych(b){
+    switch b{
+    
     }
-    w.innerHTML = str;
-    }
-*/
+    let nazwisko = document.getElementById('nazwisko').value;
+    let imie = document.getElementById('imie').value;
+    let klasa = document.getElementById('klasa').value;
+    let dataUr = document.getElementById('data_urodzenia').value;
+    dlugosc(nazwisko,10,5);
+    dlugosc(imie,10,5);
+    dlugosc(klasa,3,0);
+
+}
+*/ 
